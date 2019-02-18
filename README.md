@@ -71,4 +71,32 @@ Click on **API permissions** and then **Add a permission**
 ![add permission](images/add-permission.png) 
 
 
-Choose **APIs my organization uses**
+Choose **My APIs** and click on the application we are securing. In our case its the ```OAuthDemo-API```
+
+![new permission](images/new-permission.png) 
+
+Check the check box with the role we created in step 2.1, in our case ```OAuthDemoAPI.ReadOnly```
+
+Then click Add Permissions at the bottom
+
+![assing permission](images/assign-permission.png) 
+
+Next click the button called ```Grant admin consent for {your AD name will be here}```
+
+![assing permission](images/grant-consent.png) 
+
+# 4. Create a Client Secret 
+
+Next we need to create client secrets for our client application. Click on **Certifications & Secrets** and then **New Client Secret**
+
+![secrets](images/secrets.png) 
+
+Enter a description for the secret and choose when you would like it to auto expire. For our example we are never going to have it expire, but it is best practise to set expiry times and rotate these. 
+
+![secret details](images/secret-desc.png) 
+
+Next copy the secrets value and save it somewhere as this will not be available to view after
+
+![copy secret value](images/copy-secret-value.png) 
+
+
