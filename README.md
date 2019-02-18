@@ -100,3 +100,60 @@ Next copy the secrets value and save it somewhere as this will not be available 
 ![copy secret value](images/copy-secret-value.png) 
 
 
+# 5. Retreive all keys needed to make a token request
+
+The request to Azure AD to get a OAuth token will look like this
+
+```
+POST /{AD_Tenant_ID}/oauth2/token HTTP/1.1
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&resource={APPID_URI}
+```
+
+So we need to find the values for:
+
+1. AD_Tenant_ID 
+2. CLIENT_ID 
+3. CLIENT_SECRET
+4. APPID_URI
+	
+## 5.1 Get AD Tenant ID
+
+This is on the overiew page of your Azure AD in the portal as shown below
+
+![ad tenant](images/tenantID.png) 
+
+## 5.2 Client ID
+
+This is the Application (Client) ID for the client application we created in AD, which is located on the applications overview page
+
+![client ID](images/clientID.png) 
+
+
+## 5.3 Client Secret
+
+This is the secret that we previously copied in step 4
+
+![copy secret value](images/copy-secret-value.png) 
+
+## 5.4 APP ID URI
+
+
+
+
+
+```
+ <validate-jwt failed-validation-error-message="Unauthorized. Access token is missing or invalid." failed-validation-httpcode="401" header-name="Authorization">
+            <openid-config url="https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration" />
+            <audiences>
+                <audience>{APP ID URI}</audience>
+            </audiences>
+            <required-claims>
+                <claim name="roles" match="all">
+                    <value>{APPLICATION PERMISSION}</value>
+                </claim>
+            </required-claims>
+</validate-jwt>
+```
